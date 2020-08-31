@@ -1,0 +1,52 @@
+// Package file for Delphi 10 Seattle
+
+package dclfrxtmsrdb23;
+
+{$R *.res}
+{$R 'frxTmsRdbReg.dcr'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'FastReport 6.0 TMS RemoteDB Components - Designtime Package'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  VCL,
+  DESIGNIDE,
+  dbrtl,
+  vcldb,
+  remotedb,
+  frx23,
+  fs23,
+  frxDB23,
+  fsDB23,
+  fqb230,
+  frxtmsrdb23;
+
+contains
+  frxTmsRdbReg in 'frxTmsRdbReg.pas';
+
+end.
+

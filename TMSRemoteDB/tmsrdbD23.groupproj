@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{708C89AB-F998-459A-AF58-78351F343F3A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="frxtmsrdb23.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclfrxtmsrdb23.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="frxtmsrdb23">
+        <MSBuild Projects="frxtmsrdb23.dproj"/>
+    </Target>
+    <Target Name="frxtmsrdb23:Clean">
+        <MSBuild Projects="frxtmsrdb23.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="frxtmsrdb23:Make">
+        <MSBuild Projects="frxtmsrdb23.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclfrxtmsrdb23">
+        <MSBuild Projects="dclfrxtmsrdb23.dproj"/>
+    </Target>
+    <Target Name="dclfrxtmsrdb23:Clean">
+        <MSBuild Projects="dclfrxtmsrdb23.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclfrxtmsrdb23:Make">
+        <MSBuild Projects="dclfrxtmsrdb23.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="frxtmsrdb23;dclfrxtmsrdb23"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="frxtmsrdb23:Clean;dclfrxtmsrdb23:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="frxtmsrdb23:Make;dclfrxtmsrdb23:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
