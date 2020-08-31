@@ -21,13 +21,17 @@ The preconfigured datasource is prepared to use a Postgres connection with Datas
 
 https://dzone.com/articles/how-to-the-northwind-postgresql-sample-database-ru
 
-You have to install databse together with 32bit odbc driver. Setup an odbc source using northwind database with credentials
+You have to install https://www.postgresql.org/download/ database together with 32bit odbc driver which is selectable in stackbuilder.
+
+Setup an odbc source using northwind database with credentials.
 
 But you can use any other Database connection configured on your machine.
 
 When developing a server engine you also can use any other FireDAC connection using its components.
 
-From client site it does not matter what for a databse you use because you are connecting against TMS RemoteDB.
+For more please have a look at http://www.tmssoftware.biz/business/remotedb/doc/remotedb_manual.pdf
+
+From client site it does not matter what for a database you use because you are connecting against TMS RemoteDB and SQL.
 
 Click on Start button when defining connection string is ready.
 
@@ -37,7 +41,7 @@ Start Client program and click on check TMS RemoteDB Url. If you did not connect
 
 click on Connect. You should not see any errors.
 
-if you are using postgres northwind or mssql northwind databse you can enter select
+if you are using postgres northwind or mssql northwind database you can enter select
 
 "select * from customers"
 
@@ -68,9 +72,18 @@ Note that where clause is automatically added when add a master detail relation 
 
 Simple select the mater object and setup the mater fields.
 
-In case of customers <> orders the oders the following where clause is added.
+In case of customers <> orders the SQL for selecting ordery the following "where" clause is added automatically:
 
 WHERE (customer_id=:customer_id)
 
-6.) Execure the report. Now you should see the master detail detail result.
+6.) Execute the report. Now you should see the master detail detail result.
 
+I put a sample report in reports folder that only show that master detail detail does work without to make it pretty in the short of time :)
+
+7.) For building the component for FastReports you need to have TMS Business components installed together with FastReports VCL.
+
+Simply Copy TMSRemoteDB folder into the source Folder of FastReports and build and install the packages inside.
+
+The scripting support is currently not ready. I also did not found where to add a cool custom Image for the components. 
+
+To keep it simple i have used the default cretentials to connect to RemoteDB Server. 
