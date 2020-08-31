@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="6.7.9" DotMatrixReport="False" IniFile="\Software\Fast Reports" OldStyleProgress="True" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="39069,9383864931" ReportOptions.Description.Text="" ReportOptions.LastChange="44074,8765987731" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="TmsRdbQuery1" DataSetName="Customers"/>
+    <item DataSet="TmsRdbQuery2" DataSetName="Orders"/>
+    <item DataSet="TmsRdbQuery3" DataSetName="OrderDetails"/>
+  </Datasets>
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000">
+    <TfrxTmsRdbDatabase Name="TmsRdbDatabase1" ServerUri="http://localhost:2001/tms/remotedb" Connected="True" Password="business" Username="remotedb" PropData="05704C65667403BC000470546F700248"/>
+    <TfrxTmsRdbQuery Name="TmsRdbQuery1" UserName="Customers" CloseDataSource="True" FieldAliases.Text="" BCDToCurrency="False" IgnoreDupParams="False" SQL.Text="select * from customers                                               " Database="TmsRdbDatabase1" Left="320" Top="72"/>
+    <TfrxTmsRdbQuery Name="TmsRdbQuery2" UserName="Orders" CloseDataSource="True" FieldAliases.Text="" BCDToCurrency="False" Master="TmsRdbQuery1" IgnoreDupParams="False" SQL.Text="select * from orders&#13;&#10;WHERE (customer_id=:customer_id)" Database="TmsRdbDatabase1" MasterFields="customer_id=customer_id" Left="464" Top="76">
+      <Parameters>
+        <item Name="customer_id" DataType="ftFixedChar"/>
+      </Parameters>
+    </TfrxTmsRdbQuery>
+    <TfrxTmsRdbQuery Name="TmsRdbQuery3" UserName="OrderDetails" CloseDataSource="True" FieldAliases.Text="" BCDToCurrency="False" Master="TmsRdbQuery2" IgnoreDupParams="False" SQL.Text="select * from order_details&#13;&#10;WHERE (order_id=:order_id)" Database="TmsRdbDatabase1" MasterFields="order_id=order_id" Left="608" Top="76">
+      <Parameters>
+        <item Name="order_id" DataType="ftSmallint"/>
+      </Parameters>
+    </TfrxTmsRdbQuery>
+  </TfrxDataPage>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" Frame.Typ="0" MirrorMode="0" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="18,89765" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="TmsRdbQuery1" DataSetName="Customers" RowCount="0">
+      <TfrxMemoView Name="Customerscustomer_id" IndexTag="1" AllowVectorExport="True" Left="109,60637" Top="0" Width="79,37013" Height="18,89765" DataField="customer_id" DataSet="TmsRdbQuery1" DataSetName="Customers" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[Customers.&#34;customer_id&#34;]"/>
+      <TfrxMemoView Name="Customerscompany_name" IndexTag="1" AllowVectorExport="True" Left="370,39394" Top="0" Width="321,26005" Height="18,89765" DataField="company_name" DataSet="TmsRdbQuery1" DataSetName="Customers" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[Customers.&#34;company_name&#34;]"/>
+      <TfrxMemoView Name="Memo7" AllowVectorExport="True" Left="207,87415" Top="0" Width="154,96073" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="company_name"/>
+      <TfrxMemoView Name="Memo8" AllowVectorExport="True" Left="15,11812" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="customer_id"/>
+      <TfrxLineView Name="Line1" AllowVectorExport="True" Left="7,55906" Top="18,89765" Width="763,46506" Height="0" Color="0" Frame.Typ="4"/>
+    </TfrxMasterData>
+    <TfrxDetailData Name="DetailData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="109,60637" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="TmsRdbQuery2" DataSetName="Orders" RowCount="0">
+      <TfrxMemoView Name="Ordersorder_id" IndexTag="1" AllowVectorExport="True" Left="109,60637" Top="0" Width="79,37013" Height="18,89765" DataField="order_id" DataSet="TmsRdbQuery2" DataSetName="Orders" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[Orders.&#34;order_id&#34;]"/>
+      <TfrxMemoView Name="Ordersorder_date" IndexTag="1" AllowVectorExport="True" Left="211,65368" Top="0" Width="79,37013" Height="18,89765" DataField="order_date" DataSet="TmsRdbQuery2" DataSetName="Orders" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[Orders.&#34;order_date&#34;]"/>
+      <TfrxMemoView Name="Ordersshipped_date" IndexTag="1" AllowVectorExport="True" Left="336,37817" Top="0" Width="79,37013" Height="18,89765" DataField="shipped_date" DataSet="TmsRdbQuery2" DataSetName="Orders" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[Orders.&#34;shipped_date&#34;]"/>
+    </TfrxDetailData>
+    <TfrxGroupHeader Name="GroupHeader1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="64,25201" Width="718,1107" Condition="Orders.&#34;order_id&#34;">
+      <TfrxMemoView Name="Memo1" AllowVectorExport="True" Left="109,60637" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="order_id"/>
+      <TfrxMemoView Name="Memo2" AllowVectorExport="True" Left="211,65368" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="order_date"/>
+      <TfrxMemoView Name="Memo3" AllowVectorExport="True" Left="336,37817" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="shipped_date"/>
+    </TfrxGroupHeader>
+    <TfrxSubdetailData Name="SubdetailData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="200,31509" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="TmsRdbQuery3" DataSetName="OrderDetails" RowCount="0">
+      <TfrxMemoView Name="OrderDetailsproduct_id" IndexTag="1" AllowVectorExport="True" Left="211,65368" Top="0" Width="79,37013" Height="18,89765" DataField="product_id" DataSet="TmsRdbQuery3" DataSetName="OrderDetails" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[OrderDetails.&#34;product_id&#34;]"/>
+      <TfrxMemoView Name="OrderDetailsunit_price" IndexTag="1" AllowVectorExport="True" Left="336,37817" Top="0" Width="79,37013" Height="18,89765" DataField="unit_price" DataSet="TmsRdbQuery3" DataSetName="OrderDetails" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[OrderDetails.&#34;unit_price&#34;]"/>
+      <TfrxMemoView Name="OrderDetailsquantity" IndexTag="1" AllowVectorExport="True" Left="453,5436" Top="0" Width="79,37013" Height="18,89765" DataField="quantity" DataSet="TmsRdbQuery3" DataSetName="OrderDetails" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[OrderDetails.&#34;quantity&#34;]"/>
+    </TfrxSubdetailData>
+    <TfrxGroupHeader Name="GroupHeader2" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="154,96073" Width="718,1107" Condition="OrderDetails.&#34;order_id&#34;">
+      <TfrxMemoView Name="Memo4" AllowVectorExport="True" Left="211,65368" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="product_id"/>
+      <TfrxMemoView Name="Memo5" AllowVectorExport="True" Left="336,37817" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="unit_price"/>
+      <TfrxMemoView Name="Memo6" AllowVectorExport="True" Left="453,5436" Top="0" Width="79,37013" Height="18,89765" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="quantity"/>
+    </TfrxGroupHeader>
+  </TfrxReportPage>
+</TfrxReport>
